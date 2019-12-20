@@ -2,6 +2,7 @@
  * 动画展示
  */
 
+// 数字展示
 function showNumberWithAnimation(i, j, randNumber) {
 	
 	var numberCell = $('#number-cell-'+i+"-"+j);
@@ -18,6 +19,7 @@ function showNumberWithAnimation(i, j, randNumber) {
 	},50);
 }
 
+// 数字移动
 function showMoveAnimation(fromx, fromy, tox, toy) {
 	
 	var numberCell = $('#number-cell-'+fromx+'-'+fromy);
@@ -27,6 +29,7 @@ function showMoveAnimation(fromx, fromy, tox, toy) {
 	},200);
 }
 
+// 分数展示
 function updateScore(score) {
 	$('#score').text(score);
 }
