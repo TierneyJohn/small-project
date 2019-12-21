@@ -262,7 +262,7 @@ function isgameover(){
 
 // 游戏结束效果
 function gameover() {
-	alert('game over!');
+	alert('game over!\n分数为：' + score);
 }
 
 /*
