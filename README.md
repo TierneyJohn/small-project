@@ -1,4 +1,4 @@
-# 小型项目库 
+# 小型项目库
 
 ## 介绍
 
@@ -21,4 +21,4 @@
 ## 关于作者
 
 + Tierney-John
-  - 邮箱：<tierney-john@hotmail.com>
+  + 邮箱：<tierney-john@hotmail.com>
