@@ -180,12 +180,14 @@ class LinkImpl<T extends Comparable<T>> implements ILink<T> {
 
     /**
      * 定义Node内部类，用于保存节点
-     * data: 节点存放的数据
-     * parent:保存父节点
-     * child: 保存子节点
      */
     private class Node {
 
+        /*
+         * data: 节点存放的数据
+         * parent:保存父节点
+         * child: 保存子节点
+         * */
         private Comparable<T> data;
         private Node parent;
         private Node child;
