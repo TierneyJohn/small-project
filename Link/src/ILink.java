@@ -151,8 +151,10 @@ class LinkImpl<T extends Comparable<T>> implements ILink<T> {
         Node estimateNode = new Node(data);
         // 调用Node中的方法进行判断
         if (this.root.queryNode(estimateNode) != null) {
+            // 有返回值，找到了该对象
             return true;
         }
+        // 没有找到该对象
         return false;
 
     }
@@ -176,6 +178,7 @@ class LinkImpl<T extends Comparable<T>> implements ILink<T> {
     @Override
     public void clean() {
         this.root = null;
+        count = 0;
     }
 
     /**
@@ -192,7 +195,7 @@ class LinkImpl<T extends Comparable<T>> implements ILink<T> {
         private Node parent;
         private Node child;
 
-        public Node(Comparable<T> data) {
+        private Node(Comparable<T> data) {
             this.data = data;
         }
 
@@ -201,7 +204,7 @@ class LinkImpl<T extends Comparable<T>> implements ILink<T> {
          *
          * @param newNode 要添加的数据
          */
-        public void addNode(Node newNode) {
+        private void addNode(Node newNode) {
             if (newNode.data.compareTo((T) this.data) < 0) {
                 // 要添加的节点数据比当前节点数据小，执行添加操作，将要添加的节点插入到当前节点与父节点之间
                 newNode.parent = this.parent;
@@ -227,7 +230,7 @@ class LinkImpl<T extends Comparable<T>> implements ILink<T> {
          *
          * @param deleteNode 要删除的节点
          */
-        public void removeNode(Node deleteNode) {
+        private void removeNode(Node deleteNode) {
             // 执行数据删除,设置被删除节点的父子节点引用，并将被删除节点的引用至空
             queryNode(deleteNode).parent.child = queryNode(deleteNode).child;
         }
@@ -238,9 +241,9 @@ class LinkImpl<T extends Comparable<T>> implements ILink<T> {
          * @param estimateNode 要进行对比的Node
          * @return 如果找到返回该Node，如果没找到返回null
          */
-        public Node queryNode(Node estimateNode) {
+        private Node queryNode(Node estimateNode) {
             // 进行条件判断
-            if (this.data.compareTo((T) estimateNode.data) == 0 && estimateNode.data.equals(this.data)) {
+            if (estimateNode.data.equals(this.data)) {
                 // 返回该节点
                 return this;
             }
@@ -258,7 +261,7 @@ class LinkImpl<T extends Comparable<T>> implements ILink<T> {
         /**
          * 将Node中的数据有序保存在returnData数组中
          */
-        public void toArrayNode() {
+        private void toArrayNode() {
             // 保存当前数据
             LinkImpl.this.returnData[LinkImpl.this.foot++] = this.data;
             // 遍历至末端节点
