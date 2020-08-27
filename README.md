@@ -15,8 +15,8 @@
 ## 项目列表
 
 1. DIY2048
-2. Snake
-3. Tetris
+2. Tetris
+3. snake
 
 ## 交流提问
 
